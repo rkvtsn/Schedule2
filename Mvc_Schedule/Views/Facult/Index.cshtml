@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Mvc_Schedule.Models.DataModels.Entities.Facult>
+@if(!Model.Any())
+{
+	<div id="page-title">@Html.ActionLink("Нужно добавить факультет", "Create")</div>
+	return;
+}
+<style>
+	.facult {
+		background: #cc3300;
+		padding: 15px;
+		margin: 15px;
+		font-size: 15px;
+	}
+	.group {
+		font-size: 13px;
+		margin: 15px;
+	}
+		.group .name {
+			font-size: 18px;
+			display: block;
+			border: none;
+		}
+	.facult a {
+		font-size: 15px;
+		margin: 3px;
+		text-decoration: none;
+	}
+		.facult a:hover {
+			color: #333;
+		}
+</style>
+
+@if (Model.Any())
+{
+foreach (var facult in Model)
+{
+<div class="facult">
+	<span class="title">Факультет: @facult.Name</span>
+	@Html.ActionLink("Изменить", "Edit", "Facult", new {id = facult.FacultId}, null)
+	@Html.ActionLink("Удалить", "Delete", "Facult", new {id = facult.FacultId}, null)
+	@foreach (var group in facult.StudGroups)
+	{
+		<div class="group">
+			@Html.ActionLink(group.Name + " расписание на Чётную", "Create", "Schedule", new { id = group.GroupId, week = 2 }, new { @class = "name" })
+			@Html.ActionLink(group.Name + " расписание на Нечётную", "Create", "Schedule", new { id = group.GroupId }, new { @class = "name" })
+			@Html.ActionLink("Изменить", "Edit", "Groups", new {id = group.GroupId}, null)
+			@Html.ActionLink("Удалить", "Delete", "Groups", new {id = group.GroupId}, null)
+		</div>
+	}
+</div>
+}
+}
