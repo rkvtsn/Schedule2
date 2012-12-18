@@ -2,7 +2,7 @@
 
 @if (!((SelectList)ViewBag.FacultId).Any())
 {
-	<div id="page-title">Сначало добавьте @Html.ActionLink("факультет", "Create", "Facult")</div>
+	<div id="page-title">@Html.ActionLink("Необходимо добавить факультет", "Create", "Facult")</div>
 	return;
 }
 
