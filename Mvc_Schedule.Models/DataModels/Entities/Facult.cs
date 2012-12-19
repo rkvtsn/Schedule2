@@ -8,7 +8,7 @@ namespace Mvc_Schedule.Models.DataModels.Entities
 		[Key]
 		public int FacultId { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "Поле необходимо заполнить")]
 		[MaxLength(128)]
 		[Display(Name = "Название факультета")]
 		public string Name { get; set; }

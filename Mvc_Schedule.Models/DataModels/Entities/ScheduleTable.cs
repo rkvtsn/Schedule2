@@ -6,8 +6,8 @@ namespace Mvc_Schedule.Models.DataModels.Entities
 	{
 		[Key]
 		public int ScheduleTableId { get; set; }
-		
-		[Required]
+
+		[Required(ErrorMessage = "Поле необходимо заполнить")]
 		[MaxLength(32)]
 		[Display(Name = "Аудитория")]
 		public string Auditory { get; set; }

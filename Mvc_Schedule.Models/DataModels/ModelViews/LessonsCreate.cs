@@ -12,13 +12,13 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 
 	public class LessonsTime
 	{
-		[Required]
-		[Range(0, 59)]
+		[Required(ErrorMessage = "Поле необходимо заполнить.")]
+		[Range(0, 59, ErrorMessage = "От {0} до {1}")]
 		[Display(Name = "Минуты")]
 		public short Minutes { get; set; }
 
-		[Required]
-		[Range(0, 23)]
+		[Required(ErrorMessage = "Поле необходимо заполнить.")]
+		[Range(0, 23, ErrorMessage = "От {0} до {1}")]
 		[Display(Name = "Часы")]
 		public short Hours { get; set; }
 

@@ -11,8 +11,10 @@
 		result = "Извините, данный факультет в разработке";
 		$("#groups ul").append('<li><a href="#">Групп нет</a></li>');
 	}
+	
 	$("#page-title").html(result);
 }
+var lastId = NaN;
 $(document).ready(function () {
 	$("#groups").hide();
 	$("#facults ul li a").click(function () {
@@ -22,6 +24,9 @@ $(document).ready(function () {
 		$(this).addClass("selected");
 
 		var facultId = $(this).attr("id");
+		if (lastId == facultId) return false;
+		lastId = facultId;
+
 		$("#groups").fadeOut(function () {
 			$.ajax({
 				type: "POST",
@@ -29,9 +34,12 @@ $(document).ready(function () {
 				url: "/Default/GetGroups",
 				data: '{"id":"' + facultId + '"}',
 				dataType: "json",
-				success: loadGroups
+				success: function (data) {
+					loadGroups(data);
+					$("#groups").fadeIn();
+				}
 			});
-		}).fadeIn();
+		});
 		return false;
 	});
 	$("#facults").fadeIn();

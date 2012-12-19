@@ -8,8 +8,8 @@ namespace Mvc_Schedule.Models.DataModels.Entities
 		[Key]
 		public int SubjectId { get; set; }
 
-		[Required]
-		[MaxLength(128, ErrorMessage = "Максимальное число символов 128")]
+		[Required(ErrorMessage = "Поле необходимо заполнить")]
+		[MaxLength(128, ErrorMessage = "Максимальное число символов {0}")]
 		[Display(Name = "Название дисциплины")]
 		public string Name { get; set; }
 

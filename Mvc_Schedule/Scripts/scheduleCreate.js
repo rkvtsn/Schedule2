@@ -1,5 +1,4 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
 	// I <3 NY
 	// rly!
 	var index = $("#indexer").val(); // Id - баластовый счётчик, но без него совсем скучно

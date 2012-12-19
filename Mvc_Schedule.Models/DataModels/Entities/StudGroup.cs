@@ -9,7 +9,7 @@ namespace Mvc_Schedule.Models.DataModels.Entities
 		[Key]
 		public int GroupId { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "Поле необходимо заполнить")]
 		[MaxLength(256)]
 		[Display(Name = "Название группы")]
 		public string Name { get; set; }

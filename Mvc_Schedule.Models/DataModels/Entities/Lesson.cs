@@ -9,7 +9,7 @@ namespace Mvc_Schedule.Models.DataModels.Entities
 		[Key]
 		public int LessonId { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "Поле необходимо заполнить")]
 		[Display(Name = "Время звонка")]
 		[DisplayFormat(DataFormatString = "{0:HH:mm}")]
 		public DateTime Time { get; set; }

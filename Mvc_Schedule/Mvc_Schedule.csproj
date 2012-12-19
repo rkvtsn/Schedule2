@@ -167,8 +167,6 @@
     <Content Include="Views\Default\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\segoeuil.eot" />
-    <None Include="Content\segoeuil.ttf" />
     <Content Include="Views\Shared\_AdminMenu.cshtml" />
     <Content Include="Views\Facult\Delete.cshtml" />
     <Content Include="Views\Facult\Edit.cshtml" />
