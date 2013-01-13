@@ -16,12 +16,3 @@ C:\Users\adb\Desktop\Mvc_Schedule\Mvc_Schedule\bin\EntityFramework.dll
 C:\Users\adb\Desktop\Mvc_Schedule\Mvc_Schedule\bin\Mvc_Schedule.Models.dll
 C:\Users\adb\Desktop\Mvc_Schedule\Mvc_Schedule\bin\Mvc_Schedule.Models.pdb
 C:\Users\adb\Desktop\Mvc_Schedule\Mvc_Schedule\bin\EntityFramework.xml
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\bin\Mvc_Schedule.dll
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\bin\Mvc_Schedule.pdb
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\bin\EntityFramework.dll
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\bin\Mvc_Schedule.Models.dll
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\bin\Mvc_Schedule.Models.pdb
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\bin\EntityFramework.xml
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\obj\Debug\Mvc_Schedule.dll
-C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule\obj\Debug\Mvc_Schedule.pdb
