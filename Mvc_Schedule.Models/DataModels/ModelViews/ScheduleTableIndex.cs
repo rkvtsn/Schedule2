@@ -9,7 +9,7 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 
 		public IEnumerable<Weekday> Weekdays { get; set; }
 
-		public bool IsOddWeek { get; set; }
+		public bool IsWeekOdd { get; set; }
 
 		public IEnumerable<ScheduleTable> Schedule { get; set; }
 

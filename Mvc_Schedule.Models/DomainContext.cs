@@ -7,13 +7,11 @@ namespace Mvc_Schedule.Models
 	public class DomainContext : IDisposable
 	{
 		private readonly ConnectionContext _ctx;
-
-		public DomainContext()
-		{
-			_ctx = new ConnectionContext();
-		}
-
+		
 		public int SaveChanges() { return _ctx.SaveChanges(); }
+		public DomainContext() { _ctx = new ConnectionContext(); }
+
+		#region Repositories
 
 		private RepositoryLessons _lessons;
 		public RepositoryLessons Lessons
@@ -27,13 +25,6 @@ namespace Mvc_Schedule.Models
 		{
 			get { return _schedule ?? (_schedule = new RepositoryScheduleTable(_ctx)); }
 			set { _schedule = value; }
-		}
-
-		private RepositorySubjects _subjects;
-		public RepositorySubjects Subjects
-		{
-			get { return _subjects ?? (_subjects = new RepositorySubjects(_ctx)); }
-			set { _subjects = value; }
 		}
 
 		private RepositoryFacults _facults;
@@ -57,6 +48,7 @@ namespace Mvc_Schedule.Models
 			set { _weekdays = value; }
 		}
 
+		#endregion
 		#region Implementation of IDisposable
 
 		private bool _disposed = false;

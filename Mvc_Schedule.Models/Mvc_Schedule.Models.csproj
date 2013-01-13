@@ -37,6 +37,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,18 +56,18 @@
     <Compile Include="DataModels\Entities\Weekday.cs" />
     <Compile Include="DataModels\ModelViews\Account.cs" />
     <Compile Include="DataModels\ModelViews\FacultCreate.cs" />
+    <Compile Include="DataModels\ModelViews\FacultName.cs" />
     <Compile Include="DataModels\ModelViews\GroupsJson.cs" />
     <Compile Include="DataModels\ModelViews\LessonsCreate.cs" />
+    <Compile Include="DataModels\ModelViews\Member.cs" />
     <Compile Include="DataModels\ModelViews\ScheduleTableCreate.cs" />
     <Compile Include="DataModels\ModelViews\ScheduleTableIndex.cs" />
-    <Compile Include="DataModels\ModelViews\SubjectIndex.cs" />
     <Compile Include="DataModels\Repositories\RepositoryBase.cs" />
     <Compile Include="DataModels\Repositories\RepositoryGroups.cs" />
     <Compile Include="DataModels\Repositories\RepositoryLessons.cs" />
     <Compile Include="DataModels\Entities\ScheduleTable.cs" />
-    <Compile Include="DataModels\Entities\Subject.cs" />
     <Compile Include="DataModels\Repositories\RepositoryScheduleTable.cs" />
-    <Compile Include="DataModels\Repositories\RepositorySubjects.cs" />
+    <Compile Include="DataModels\StaticData.cs" />
     <Compile Include="DomainContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataModels\Repositories\RepositoryFacults.cs" />

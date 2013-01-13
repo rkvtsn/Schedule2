@@ -1,8 +1,8 @@
 ﻿function loadGroups(data) {
 	var result = "Выберите группу";
+	var groupsDiv = $("#groups ul");
+	groupsDiv.html("");
 	if (data != null && data.length > 0) {
-		var groupsDiv = $("#groups ul");
-		groupsDiv.html("");
 		$.each(data, function (index, d) {
 			var group = '<li><a href="/Schedule/Index/' + d.Id + '">' + d.Name + '</a></li>';
 			groupsDiv.append(group);
@@ -11,7 +11,6 @@
 		result = "Извините, данный факультет в разработке";
 		$("#groups ul").append('<li><a href="#">Групп нет</a></li>');
 	}
-	
 	$("#page-title").html(result);
 }
 var lastId = NaN;
@@ -22,11 +21,9 @@ $(document).ready(function () {
 			if (f.className == "selected") f.className = "";
 		});
 		$(this).addClass("selected");
-
 		var facultId = $(this).attr("id");
 		if (lastId == facultId) return false;
 		lastId = facultId;
-
 		$("#groups").fadeOut(function () {
 			$.ajax({
 				type: "POST",

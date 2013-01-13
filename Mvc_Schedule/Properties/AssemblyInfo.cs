@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // общие сведения об этой сборке.
 [assembly: AssemblyTitle("Mvc_Schedule")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Веб-приложение")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Mvc_Schedule")]
+[assembly: AssemblyCompany("Рукавицын Андрей Николаевич, АГПУ")]
+[assembly: AssemblyProduct("Расписание занятий")]
 [assembly: AssemblyCopyright("© , 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
 // используя "*", как показано ниже:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.1.0.0")]
+[assembly: AssemblyFileVersion("2.1.0.0")]

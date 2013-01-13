@@ -11,7 +11,7 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 		public int GroupId { get; set; }
 
 		[Display(Name = "Нечётная неделя")]
-		public bool IsOddWeek { get; set; }
+		public bool IsWeekOdd { get; set; }
 
 		private IList<ScheduleTable> _scheduleTableRows;
 		public IList<ScheduleTable> ScheduleTableRows
@@ -22,7 +22,7 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 				_scheduleTableRows = value;
 				if (_scheduleTableRows != null)
 					foreach (var scheduleTable in value)
-						scheduleTable.IsWeekOdd = IsOddWeek;
+						scheduleTable.IsWeekOdd = IsWeekOdd;
 			}
 		}
 

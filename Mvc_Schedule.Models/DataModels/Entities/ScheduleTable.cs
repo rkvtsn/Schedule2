@@ -7,21 +7,23 @@ namespace Mvc_Schedule.Models.DataModels.Entities
 		[Key]
 		public int ScheduleTableId { get; set; }
 
-		[Required(ErrorMessage = "Поле необходимо заполнить")]
-		[MaxLength(32)]
 		[Display(Name = "Аудитория")]
+		[MaxLength(32)]
+		[Required(ErrorMessage = "Поле необходимо заполнить")]
 		public string Auditory { get; set; }
 
-		[MaxLength(127)]
 		[Display(Name = "Преподаватель")]
+		[MaxLength(127)]
 		public string LectorName { get; set; }
 
 		//Нечетная неделя
-		[Display(Name = "Чётная неделя")]
+		[Display(Name = "Нечётная неделя")]
 		public bool IsWeekOdd { get; set; }
 
 		[Display(Name = "Дисциплина")]
-		public int SubjectId { get; set; }
+		[Required(ErrorMessage = "Поле необходимо заполнить")]
+		[MaxLength(127, ErrorMessage = "Допустимо {0} символов в названии")]
+		public string SubjectName { get; set; }
 
 		[Display(Name = "Звонок")]
 		public int LessonId { get; set; }
@@ -36,8 +38,6 @@ namespace Mvc_Schedule.Models.DataModels.Entities
 		public virtual Weekday Weekday { get; set; }
 		[ForeignKey("GroupId")]
 		public virtual StudGroup StudGroup { get; set; }
-		[ForeignKey("SubjectId")]
-		public virtual Subject Subject { get; set; }
 		[ForeignKey("LessonId")]
 		public virtual Lesson Lesson { get; set; }
 	}

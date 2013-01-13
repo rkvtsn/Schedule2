@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using Mvc_Schedule.Models;
-using Mvc_Schedule.Models.DataModels.ModelViews;
 
 namespace Mvc_Schedule.Controllers
 {
@@ -14,18 +12,16 @@ namespace Mvc_Schedule.Controllers
 			ViewBag.Title = "Главная";
 		}
 
-		//
-		// GET: /Default/
-
 		public ActionResult Index()
 		{
 			using (var db = new DomainContext())
 			{
-				var model = db.Facults.ListNames();
+				var model = db.Facults.ListNames(true);
 				return View(model);
 			}
 		}
 
+		#region ajax-запросы
 		[HttpPost]
 		public JsonResult GetGroups(string id)
 		{
@@ -39,11 +35,8 @@ namespace Mvc_Schedule.Controllers
 			return Json(null);
 		}
 
-
 		public JsonResult ChangeTheme()
 		{
-			// Нас рать на Exceptions
-			// We've just take and give Async Data
 			var cookie = System.Web.HttpContext.Current.Request.Cookies["Theme"];
 			if (cookie == null)
 			{
@@ -64,9 +57,9 @@ namespace Mvc_Schedule.Controllers
 
 			return Json("True");
 		}
+		#endregion
 
 
-		
 		public ViewResult Error(int id = 101)
 		{
 			switch (id)
@@ -75,7 +68,7 @@ namespace Mvc_Schedule.Controllers
 					ViewBag.Message = "Ошибка 404. Запрашиваемой страницы не существует.";
 					break;
 				case 400:
-					ViewBag.Message = "Ошибка 400. Ой что-то не то...";
+					ViewBag.Message = "Ошибка 400. Ой, что-то не то...";
 					break;
 				case 500:
 					ViewBag.Message = "Ошибка 500. Сервер отдыхает.";

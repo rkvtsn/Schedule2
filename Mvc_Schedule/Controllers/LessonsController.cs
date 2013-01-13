@@ -1,38 +1,20 @@
 ﻿using System.Web.Mvc;
 using Mvc_Schedule.Models;
+using Mvc_Schedule.Models.DataModels;
 using Mvc_Schedule.Models.DataModels.Entities;
 using Mvc_Schedule.Models.DataModels.ModelViews;
 
 namespace Mvc_Schedule.Controllers
-{ 
-	[Authorize]
+{
+	[Authorize(Roles = StaticData.AdminRoleName)]
     public class LessonsController : Controller
     {
         private readonly DomainContext _db = new DomainContext();
 
-    	public LessonsController()
-    	{
-    		ViewBag.Title = "Редактор звонков";
-    	}
-
-        //
-        // GET: /Lessons/
-
-        public ViewResult Index()
-        {
-            return View(_db.Lessons.List());
-        }
-
-        //
-        // GET: /Lessons/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        } 
-
-        //
-        // POST: /Lessons/Create
+    	public LessonsController() { ViewBag.Title = "Редактор звонков"; }
+		
+		public ViewResult Index() { return View(_db.Lessons.List()); }
+		public ActionResult Create() { return View(); } 
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
@@ -47,18 +29,12 @@ namespace Mvc_Schedule.Controllers
 
             return View(lesson);
         }
-        
-        //
-        // GET: /Lessons/Edit/5
- 
-        public ActionResult Edit(int id)
-        {
-			var lesson = _db.Lessons.Get(id);
-            return View(lesson);
-        }
 
-        //
-        // POST: /Lessons/Edit/5
+		public ActionResult Edit(int id)
+		{
+			var lesson = _db.Lessons.Get(id);
+			return View(lesson);
+		}
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
@@ -73,17 +49,7 @@ namespace Mvc_Schedule.Controllers
             return View(lesson);
         }
 
-        //
-        // GET: /Lessons/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Lesson lesson = _db.Lessons.Get(id);
-            return View(lesson);
-        }
-
-        //
-        // POST: /Lessons/Delete/5
+        public ActionResult Delete(int id) { return View(_db.Lessons.Get(id)); }
 
         [HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]

@@ -1,8 +1,5 @@
-﻿using System.Web;
-using Mvc_Schedule.Models;
-using Mvc_Schedule.Models.DataModels.Entities;
+﻿using Mvc_Schedule.Models;
 using System.Web.Mvc;
-using Mvc_Schedule.Models.DataModels.ModelViews;
 
 namespace Mvc_Schedule.Controllers
 {
@@ -10,14 +7,15 @@ namespace Mvc_Schedule.Controllers
 	{
 		private readonly DomainContext _db = new DomainContext();
 
-		public ScheduleController()
+		public ScheduleController() { ViewBag.Title = "Редактор расписания"; }
+
+		[HttpPost]
+		public JsonResult GetSubjects(string letter)
 		{
-			ViewBag.Title = "Редактор расписания";
+			var model = _db.Schedule.ListSubjects(letter);
+
+			return Json(model);
 		}
-
-
-		//
-		// GET: /Schedule/
 
 		[HttpGet]
 		public ActionResult Index(int id = -1, int week = 1)
@@ -30,48 +28,6 @@ namespace Mvc_Schedule.Controllers
 			return View(model);
 		}
 
-		#region oldStyle
-		////
-		//// GET: /Schedule/Create
-
-		//[Authorize]
-		//[HttpGet]
-		//public ActionResult Create(int id = -1, int week = 1)
-		//{
-		//    var group = _db.Groups.Get(id);
-		//    if (group == null)
-		//        return RedirectToRoute(new { controller = "Default", action = "Error", id = 404 });
-
-		//    var model = _db.Schedule.ListForCreate(id, 1 == week);
-
-		//    return View(model);
-		//}
-
-		////
-		//// POST: /Schedule/Create
-
-		//[Authorize]
-		//[HttpPost]
-		//public ActionResult Create(ScheduleTableCreate scheduletable)
-		//{
-		//    if (ModelState.IsValid)
-		//    {
-		//        _db.Schedule.ListAdd(scheduletable);
-		//        _db.SaveChanges();
-		//        return RedirectToAction("Index", "Facult");
-		//    }
-
-		//    scheduletable.Lessons = _db.Lessons.List();
-		//    scheduletable.Weekdays = _db.Weekdays.List();
-		//    scheduletable.Subjects = _db.Subjects.List();
-
-		//    return View(scheduletable);
-		//}
-		#endregion
-
-		//
-		// GET: /Schedule/Create
-
 		[Authorize]
 		[HttpGet]
 		public ActionResult Create(int id = -1, int week = 1)
@@ -82,36 +38,6 @@ namespace Mvc_Schedule.Controllers
 
 			return View(model);
 		}
-
-		[HttpPost]
-		public JsonResult GetSubjects(string id)
-		{
-			var model = _db.Subjects.List(id);
-
-			return Json(model);
-		}
-
-
-		//
-		// POST: /Schedule/Create
-
-		//[Authorize]
-		//[HttpPost]
-		//[ValidateAntiForgeryToken]
-		//public ActionResult Create(ScheduleTableCreate scheduletable)
-		//{
-		//    if (ModelState.IsValid)
-		//    {
-		//        _db.Schedule.ListAdd(scheduletable);
-		//        _db.SaveChanges();
-		//        return RedirectToAction("Index", "Facult");
-		//    }
-
-		//    scheduletable.Lessons = _db.Lessons.List();
-		//    scheduletable.Weekdays = _db.Weekdays.List();
-
-		//    return View(scheduletable);
-		//}
 
 		[Authorize]
 		[HttpPost]
@@ -129,11 +55,11 @@ namespace Mvc_Schedule.Controllers
 			}
 
 			ViewBag.Error = "Ошибка ввода, заполните все поля";
-			scheduletable.Lessons = _db.Lessons.List();
+			scheduletable.Lessons = _db.Lessons.List(); 
 			scheduletable.Weekdays = _db.Weekdays.List();
 
 			return View(scheduletable);
-			//return View(new ScheduleTableCreate()); // :Debug Mode
+			//return View(new ScheduleTableCreate());
 		}
 
 

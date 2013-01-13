@@ -3,10 +3,8 @@
 
 <link href="@Url.Content("~/Content/style_schedule.css")" rel="stylesheet" type="text/css" />
 
-
-
 <div id="switchers">
-	@(Model.IsOddWeek ? Html.ActionLink(" ", "Index", new {id = Model.Group.GroupId, week = "2"}, new {id = "weekSwitcher", @class = "select"}) : Html.ActionLink(" ", "Index", new {id = Model.Group.GroupId, week = "1"}, new {id = "weekSwitcher"}))
+	@(Model.IsWeekOdd ? Html.ActionLink(" ", "Index", new {id = Model.Group.GroupId, week = "2"}, new {id = "weekSwitcher", @class = "select"}) : Html.ActionLink(" ", "Index", new {id = Model.Group.GroupId, week = "1"}, new {id = "weekSwitcher"}))
 	<a id="wrapSwitcher" href="javascript:void(0)"></a>
 </div>
 
@@ -29,7 +27,7 @@
 				@foreach (var sublesson in Model.Schedule.Where(x => x.LessonId == lesson.LessonId && x.WeekdayId == weekday.WeekdayId))
 				{
 				<p class="auditory">@sublesson.Auditory</p>
-				<p>@sublesson.Subject.Name</p>
+				<p>@sublesson.SubjectName</p>
 				<p class="lectors">@sublesson.LectorName</p>
 				<div class="ending"></div>
 				}
@@ -66,4 +64,13 @@
 			}).fadeIn();
 		});
 	});
+
+	function methodToFixLayout(e) {
+		var winWidth = $(window).width();
+		$("#selector-block").css("width", (winWidth <= 800) ? 'auto' : '');
+		$("#selector-block").css("min-width", (winWidth <= 800) ? '300px' : '');
+	}
+	
+	$(window).bind("resize", methodToFixLayout);
+
 </script>

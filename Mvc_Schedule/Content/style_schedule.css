@@ -24,8 +24,7 @@
 	font-size: 28px;
 	padding: 5px 10px 10px 0px;
 	color: #fff;
-	width: 120px;
-	/*background: #cc3300;*/
+	width: 170px;
 }
 .time {
 	font-size: 24px;
@@ -45,16 +44,9 @@
 	padding: 6px 5px;
 	display: inline-block;
 }
-.lesson {
-	/*border-bottom: 1px solid #cc3300;*/
-	margin: 6px 0;
-}
-.weekday ul {
-	list-style: none;
-}
-.list .time {
-	float: left;
-}
+.lesson {margin: 6px 0;}
+.weekday ul {list-style: none;}
+.list .time {float: left;}
 .list  .sublesson {
 	float: left;
 	margin-left: 20px;
@@ -62,26 +54,16 @@
 .list .weekday {
 	margin-bottom: 20px;
 	padding: 10px;
-	/*background: #fff;*/
-	/*color: #cc3300;*/
 	color: #fff;
-}
-
-.wrap .weekday * {
-	
 }
 .wrap .weekday {
 	display: inline-block;
 	padding: 10px;
 	margin: 10px;
-	/*background: #fff;*/
-	/*color: #cc3300;*/
 }
-.wrap  .sublesson {
+.wrap .sublesson {
 	margin-left: 20px;
 }
-
-
 .ending {
 	clear: both;
 }

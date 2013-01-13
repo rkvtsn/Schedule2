@@ -18,6 +18,7 @@ a { color: #fff; outline: none; text-decoration: none; } p { margin: 0; } img { 
 }
 #header {
 	height: 50px;
+	min-width: 400px;
 	padding-top: 10px;
 	padding-left: 20px;
 }
@@ -81,7 +82,7 @@ input[type=submit] {
 		color: #fff;
 		background: none;
 	}
-	a#colorSwitcher {
+	a#colorSwitcher { 
 		margin-top: 10px;
 		margin-left: 40px;
 		display: inline-block;

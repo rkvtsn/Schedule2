@@ -5,11 +5,12 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 {
 	public class ChangePasswordModel
 	{
-		[Required(ErrorMessage = "Текущий пароль необходимо заполнить.")]
-		[DataType(DataType.Password)]
-		[Display(Name = "Текущий пароль")]
-		public string OldPassword { get; set; }
-
+		//[Required(ErrorMessage = "Текущий пароль необходимо заполнить.")]
+		//[DataType(DataType.Password)]
+		//[Display(Name = "Текущий пароль")]
+		//public string OldPassword { get; set; }
+		public string UserName { get; set; }
+		
 		[Required(ErrorMessage = "Новый пароль необходимо заполнить.")]
 		[StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
 		[DataType(DataType.Password)]
@@ -39,16 +40,17 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 
 	public class RegisterModel
 	{
-		[Required(ErrorMessage = "Имя пользователя необходимо заполнить.")]
+		[Required]
 		[Display(Name = "Имя пользователя")]
+		[RegularExpression(@"[A-Za-z0-9._]{5,100}$", ErrorMessage = "Имя пользователя должно состоять из латинских символов длиной от 5 до 100")]
 		public string UserName { get; set; }
 
-		[Required(ErrorMessage = "Адрес необходимо заполнить.")]
+		[Required]
 		[DataType(DataType.EmailAddress)]
 		[Display(Name = "Адрес электронной почты")]
 		public string Email { get; set; }
 
-		[Required(ErrorMessage = "Пароль необходимо заполнить.")]
+		[Required]
 		[StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
 		[DataType(DataType.Password)]
 		[Display(Name = "Пароль")]

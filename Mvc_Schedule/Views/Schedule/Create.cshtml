@@ -13,9 +13,7 @@
 <link href="@Url.Content("~/Content/jquery.ui.autocomplete.css")" rel="stylesheet" type="text/css" />
 
 <style>
-	.weekday {
-		margin-top: 10px;
-	}
+	.weekday { margin-top: 10px; }
 	.weekday h3 {
 		cursor: pointer;
 		padding: 10px;
@@ -28,50 +26,22 @@
 		padding: 2px 10px 6px 10px;
 		text-align: center;
 	}
-		
-	#selector-block a:hover {
-		background: #000;
-	}
-	.weekday:hover h3 {
-		background: url('/Content/images/glow_bg.png') repeat;
-	}
-	.hideme {
-		font-size: 12px;
-		margin: 10px;
-		text-decoration: underline;
-	}
-	.weekday h3:hover .hideme {
-		text-decoration: none;
-	}
-	
-	input[type=text] {
-		width: 50px;
-		margin-right: 10px;
-	}
-	input.subjects {
-		width: 260px;
-	}
-	input.lectors {
-		width: 180px;
-		margin-right: 0;
-	}
+	#selector-block a:hover { background: #000; }
+	.weekday:hover h3 { background: url('/Content/images/glow_bg.png') repeat; }
+	.hideme { font-size: 12px; margin: 10px; text-decoration: underline; }
+	.weekday h3:hover .hideme { text-decoration: none; }
+	input[type=text] { width: 50px; margin-right: 10px; }
+	input.subjects { width: 260px; }
+	input.lectors { width: 180px; margin-right: 0; }
 </style>
-
-@{
-	var index = 0;
-}
-
-<div id="page-title">Расписание группы: @Model.GroupName на @(Model.IsOddWeek ? Html.ActionLink("нечётную", "Create", new { id = Model.GroupId, week = "2" }, new { @class = "select" }) : Html.ActionLink("чётную", "Create", new { id = Model.GroupId, week = "1" }, null)) неделю @if(ViewBag.Error != null){ <br /><span>@ViewBag.Error</span> }</div>
-
+@{ var index = 0; }
+<div id="page-title">@Html.ActionLink("Отмена", "Index", "Facult") | Расписание группы: @Model.GroupName на @(Model.IsWeekOdd ? Html.ActionLink("нечётную", "Create", new { id = Model.GroupId, week = "2" }, new { @class = "select" }) : Html.ActionLink("чётную", "Create", new { id = Model.GroupId, week = "1" }, null)) неделю @if(ViewBag.Error != null){ <br /><span>@ViewBag.Error</span> }</div>
 <div id="selector-block">
-
 @using (Html.BeginForm()){
 	@Html.AntiForgeryToken()
 	<input type="submit" value="Сохранить" />
-	
 	@Html.Hidden("GroupId", Model.GroupId)
-	@Html.Hidden("IsOddWeek", Model.IsOddWeek)
-
+	@Html.Hidden("IsOddWeek", Model.IsWeekOdd)
 	foreach (var weekday in Model.Weekdays)
 	 {
 			<div class="weekday" id="@weekday.WeekdayId">
@@ -89,20 +59,15 @@
 								@Html.Hidden("ScheduleTableRows[" + index + "].ScheduleTableId", row.ScheduleTableId)
 								@Html.Label("ScheduleTableRows[" + index + "].Auditory", "Аудитория")
 								@Html.TextBox("ScheduleTableRows[" + index + "].Auditory", row.Auditory)
-
 								@Html.Label("ScheduleTableRows[" + index + "].Subject.Name", "Название дисциплины")
-								@Html.TextBox("ScheduleTableRows[" + index + "].Subject.Name", row.Subject.Name, new { @class = "subjects" })
-								
+								@Html.TextBox("ScheduleTableRows[" + index + "].Subject.Name", row.SubjectName, new { @class = "subjects" })
 								@Html.Label("ScheduleTableRows[" + index + "].LectorName", "Преподаватель")
 								@Html.TextBox("ScheduleTableRows[" + index + "].LectorName", row.LectorName, new { @class = "lectors" })
-
-								<!-- Баласт -->
 								@Html.Hidden("ScheduleTableRows[" + index + "].LessonId", lesson.LessonId)
 								@Html.Hidden("ScheduleTableRows[" + index + "].GroupId", Model.GroupId)
 								@Html.Hidden("ScheduleTableRows[" + index + "].WeekdayId", weekday.WeekdayId)
-
 								@{ index++; }
-								<a class="remove" href="javascript:void(0)">-</a>
+								@*<a class="remove" href="javascript:void(0)">-</a>*@
 							</li>
 			}
 						}
@@ -117,28 +82,4 @@
 }
 </div>
 @Html.Hidden("indexer", index)
-
 <script src="@Url.Content("~/Scripts/scheduleCreate.js")" type="text/javascript"></script>
-
-<script>
-	$(document).ready(function () {
-		$(function () {
-			$("input.subjects").autocomplete({
-				source: function (request, response) {
-					$.ajax({
-						url: '/Schedule/GetSubjects',
-						type: "POST",
-						dataType: "json",
-						data: { id: request.term },
-						success: function (data) {
-							response($.map(data, function (item) {
-								return { label: item, value: item };
-							}));
-						}
-					});
-				},
-				minLength: 1
-			});
-		});
-	});
-</script>

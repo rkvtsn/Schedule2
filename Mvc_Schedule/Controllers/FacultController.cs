@@ -1,109 +1,100 @@
-﻿using System.Web.Mvc;
+﻿using System.Globalization;
+using System.Web.Mvc;
+using System.Web.Security;
 using Mvc_Schedule.Models;
+using Mvc_Schedule.Models.DataModels;
 using Mvc_Schedule.Models.DataModels.Entities;
 using Mvc_Schedule.Models.DataModels.ModelViews;
 
 
 namespace Mvc_Schedule.Controllers
-{ 
+{
 	[Authorize]
-    public class FacultController : Controller
-    {
-        private readonly DomainContext _db = new DomainContext();
-
-    	public FacultController()
-    	{
+	public class FacultController : Controller
+	{
+		private readonly DomainContext _db = new DomainContext();
+		public FacultController()
+		{
 			ViewBag.Title = "Редактор факультетов";
-    	}
-
-        //
-        // GET: /Facult/
-
-        public ViewResult Index()
-        {
-			var model = _db.Facults.List();
+		}
+		public ViewResult Index()
+		{
+			ViewData["isAccessable"] = User.IsInRole(StaticData.AdminRoleName);
+			var model = _db.Facults.ListNames();
 			return View(model);
-        }
+		}
 
-        //
-        // GET: /Facult/Create
-
+		[Authorize(Roles = StaticData.AdminRoleName)]
 		public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Facult/Create
-
+		{
+			return View();
+		}
+		[Authorize(Roles = StaticData.AdminRoleName)]
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-        public ActionResult Create(FacultCreate facult)
-        {
-            if (ModelState.IsValid)
-            {
-				_db.Facults.Add(facult);
+		public ActionResult Create(FacultCreate model)
+		{
+			if (ModelState.IsValid)
+			{
+				_db.Facults.Add(model);
 				_db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(facult);
-        }
-        
-        //
-        // GET: /Facult/Edit/5
- 
-        public ActionResult Edit(int id)
-        {
-            var facult = _db.Facults.Get(id);
+				if (!Roles.RoleExists(model.FacultInstance.FacultId.ToString(CultureInfo.InvariantCulture)))
+					Roles.CreateRole(model.FacultInstance.FacultId.ToString(CultureInfo.InvariantCulture));
+				
+				return RedirectToAction("Index");
+			}
+
+			return View(model);
+		}
+		[Authorize(Roles = StaticData.AdminRoleName)]
+		public ActionResult Edit(int id)
+		{
+			var facult = _db.Facults.Get(id);
 			if (facult == null)
 				return RedirectToRoute(new { controller = "Default", action = "Error", id = 404 });
-            return View(facult);
-        }
 
-        //
-        // POST: /Facult/Edit/5
-
-        [HttpPost]
+			return View(facult);
+		}
+		[Authorize(Roles = StaticData.AdminRoleName)]
+		[HttpPost]
 		[ValidateAntiForgeryToken]
-        public ActionResult Edit(Facult facult)
-        {
-            if (ModelState.IsValid)
-            {
+		public ActionResult Edit(Facult facult)
+		{
+			if (ModelState.IsValid)
+			{
 				_db.Facults.Edit(facult);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(facult);
-        }
-
-        //
-        // GET: /Facult/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            var facult = _db.Facults.Get(id);
+				_db.SaveChanges();
+				
+				return RedirectToAction("Index");
+			}
+			return View(facult);
+		}
+		[Authorize(Roles = StaticData.AdminRoleName)]
+		public ActionResult Delete(int id)
+		{
+			var facult = _db.Facults.Get(id);
 			if (facult == null)
 				return RedirectToRoute(new { controller = "Default", action = "Error", id = 404 });
-            return View(facult);
-        }
-
-        //
-        // POST: /Facult/Delete/5
-
-        [HttpPost, ActionName("Delete")]
+			return View(facult);
+		}
+		[Authorize(Roles = StaticData.AdminRoleName)]
+		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {            
-            _db.Facults.Delete(id);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+		public ActionResult DeleteConfirmed(int id)
+		{
+			if (!_db.Facults.Delete(id)) 
+				return RedirectToRoute(new { controller = "Default", action = "Error", id = 400 });
+			_db.SaveChanges();
+			if (!Roles.RoleExists(id.ToString(CultureInfo.InvariantCulture)))
+				Roles.DeleteRole(id.ToString(CultureInfo.InvariantCulture));
+			return RedirectToAction("Index");
+		}
 
-        protected override void Dispose(bool disposing)
-        {
-            _db.Dispose();
-            base.Dispose(disposing);
-        }
-    }
+		protected override void Dispose(bool disposing)
+		{
+			_db.Dispose();
+			base.Dispose(disposing);
+		}
+	}
 }

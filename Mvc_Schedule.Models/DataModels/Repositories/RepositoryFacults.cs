@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Security;
 using Mvc_Schedule.Models.DataModels.Entities;
 using Mvc_Schedule.Models.DataModels.ModelViews;
 
@@ -10,7 +10,7 @@ namespace Mvc_Schedule.Models.DataModels.Repositories
 	public class RepositoryFacults : RepositoryBase<ConnectionContext>
 	{
 		public RepositoryFacults(ConnectionContext ctx) : base(ctx) { }
-		
+
 		public Facult Get(int id)
 		{
 			return _ctx.Facults.Find(id);
@@ -24,11 +24,25 @@ namespace Mvc_Schedule.Models.DataModels.Repositories
 					.ToList();
 		}
 
-		public IList<Facult> ListNames()
+		public IList<FacultName> ListNames(bool isGuest = false)
 		{
-			return _ctx.Facults
-					.OrderBy(x => x.Name)
-					.ToList();
+			var roles = Roles.GetRolesForUser();
+
+			if (roles.Contains("Admin") || isGuest)
+				return (from x in _ctx.Facults orderby x.Name select new FacultName { FacultId = x.FacultId, Name = x.Name }).ToList();
+
+			var facIds = new List<int>();
+			foreach (string role in roles)
+			{
+				int facId;
+				if (int.TryParse(role, out facId))
+					facIds.Add(facId);
+			}
+
+			return (from x in _ctx.Facults
+					where facIds.Contains(x.FacultId)
+					orderby x.Name
+					select new FacultName { FacultId = x.FacultId, Name = x.Name }).ToList();
 		}
 
 		public void Add(FacultCreate facult)
@@ -45,9 +59,13 @@ namespace Mvc_Schedule.Models.DataModels.Repositories
 			old.Name = facult.Name;
 		}
 
-		public void Delete(int id)
+		public bool Delete(int id)
 		{
-			_ctx.Facults.Remove(Get(id));
+			var fac = Get(id);
+			if (fac == null)
+				return false;
+			_ctx.Facults.Remove(fac);
+			return true;
 		}
 	}
 }

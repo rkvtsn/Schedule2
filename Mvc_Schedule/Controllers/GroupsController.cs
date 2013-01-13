@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Globalization;
+using System.Web.Mvc;
+using System.Web.Security;
 using Mvc_Schedule.Models;
+using Mvc_Schedule.Models.DataModels;
 using Mvc_Schedule.Models.DataModels.Entities;
 
 namespace Mvc_Schedule.Controllers
@@ -16,6 +19,7 @@ namespace Mvc_Schedule.Controllers
 
 		public ActionResult Create()
 		{
+			ViewData["IsAdmin"] = Roles.IsUserInRole(StaticData.AdminRoleName);
 			ViewBag.FacultId = new SelectList(_db.Facults.ListNames(), "FacultId", "Name");
 			return View();
 		}
@@ -26,6 +30,9 @@ namespace Mvc_Schedule.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+				if (!Roles.IsUserInRole(studgroup.FacultId.ToString(CultureInfo.InvariantCulture)) && !Roles.IsUserInRole(StaticData.AdminRoleName))
+					return RedirectToRoute(new { controller = "Default", action = "Error", id = 404 });
+
 				_db.Groups.Add(studgroup);
 				_db.SaveChanges();
 				return RedirectToAction("Index", new { controller = "Facult" });
@@ -38,7 +45,7 @@ namespace Mvc_Schedule.Controllers
 		public ActionResult Edit(int id)
 		{
 			StudGroup studgroup = _db.Groups.Get(id);
-			if (studgroup == null)
+			if (studgroup == null || (!Roles.IsUserInRole(studgroup.FacultId.ToString(CultureInfo.InvariantCulture)) && !Roles.IsUserInRole(StaticData.AdminRoleName)))
 				return RedirectToRoute(new { controller = "Default", action = "Error", id = 404 });
 			ViewBag.FacultId = new SelectList(_db.Facults.ListNames(), "FacultId", "Name", studgroup.FacultId);
 			return View(studgroup);
