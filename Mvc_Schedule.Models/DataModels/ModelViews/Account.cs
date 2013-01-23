@@ -40,17 +40,17 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 
 	public class RegisterModel
 	{
-		[Required]
+		[Required(ErrorMessage = "Необходимо заполнить имя пользователя")]
 		[Display(Name = "Имя пользователя")]
 		[RegularExpression(@"[A-Za-z0-9._]{5,100}$", ErrorMessage = "Имя пользователя должно состоять из латинских символов длиной от 5 до 100")]
 		public string UserName { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "Необходимо заполнить адрес электронной почты")]
 		[DataType(DataType.EmailAddress)]
 		[Display(Name = "Адрес электронной почты")]
 		public string Email { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "Необходимо заполнить пароль")]
 		[StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]
 		[DataType(DataType.Password)]
 		[Display(Name = "Пароль")]
