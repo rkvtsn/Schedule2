@@ -16,7 +16,7 @@ namespace Mvc_Schedule.Models.DataModels
 
 		public DbSet<Facult> Facults { get; set; }
 
-		public DbSet<Weekday> Weekdays { get; set; } // ver 2.1.1 Замена на static readonly Dictionary<int, string> {}
+		public DbSet<Weekday> Weekdays { get; set; }
 	}
 
 	#region DbIni:

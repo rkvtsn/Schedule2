@@ -27,15 +27,15 @@
     </div>
     <div class="editor-field">
         @Html.DropDownList("FacultId")
-        @Html.ValidationMessageFor(model => model.FacultId)
     </div>
 
     <div class="editor-label">
-        @Html.LabelFor(model => model.Name)
+        @Html.Raw(Html.LabelFor(x => x.Name).ToString())
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.Name)
-        @Html.ValidationMessageFor(model => model.Name)
+        @if (Html.ValidationMessageFor(x => x.Name) != null)
+		{ @Html.Raw(Html.ValidationMessageFor(x => x.Name).ToString()) }
     </div>
 
     <p>

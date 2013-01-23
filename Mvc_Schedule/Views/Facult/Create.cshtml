@@ -36,25 +36,27 @@
     </div>
 	<div class="editor-field">
 		@Html.EditorFor(model => model.FacultInstance.Name)
-		@Html.ValidationMessageFor(model => model.FacultInstance.Name)
+		@if (Html.ValidationMessageFor(x => x.FacultInstance.Name) != null)
+		{ @Html.Raw(Html.ValidationMessageFor(x => x.FacultInstance.Name).ToString()) }
 	</div>
 		
 	<div id="element-fields">
 	@if (Model != null && Model.StudGroupsNames.Any())
-	{
-		for (var i = 0; i < Model.StudGroupsNames.Count(); i++)
-		{
+ {
+	 for (var i = 0; i < Model.StudGroupsNames.Count(); i++)
+	 {
 			<div class="element" id="element_@(i)">
 			<div class="editor-label">
 				@Html.LabelFor(model => model.StudGroupsNames[i].Name)
 			</div>
 			<div class="editor-field">
 				@Html.EditorFor(model => model.StudGroupsNames[i].Name)
-				@Html.ValidationMessageFor(model => model.StudGroupsNames[i].Name)
+				@if (Html.ValidationMessageFor(model => model.StudGroupsNames[i].Name) != null)
+				{ @Html.Raw(Html.ValidationMessageFor(model => model.StudGroupsNames[i].Name).ToString()) }
 			</div>
 			</div>
-		}
-	}
+	 }
+ }
 	</div>
 	
 	<p id="element-additor">
