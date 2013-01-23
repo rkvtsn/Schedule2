@@ -1,0 +1,7 @@
+C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule.Models\bin\Debug\Mvc_Schedule.Models.dll
+C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule.Models\bin\Debug\Mvc_Schedule.Models.pdb
+C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule.Models\bin\Debug\EntityFramework.dll
+C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule.Models\bin\Debug\EntityFramework.xml
+C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule.Models\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule.Models\obj\Debug\Mvc_Schedule.Models.dll
+C:\Users\adb\Documents\GitHub\Schedule2\Mvc_Schedule.Models\obj\Debug\Mvc_Schedule.Models.pdb

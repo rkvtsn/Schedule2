@@ -3,13 +3,11 @@
     <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/d:ModelViews/f:ScheduleTableCreate.cs" caret="369" fromTop="13" />
     <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/d:ModelViews/f:ScheduleTableIndex.cs" caret="300" fromTop="11" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Content/f:style.css" caret="0" fromTop="0" />
-    <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/d:Entities/f:ScheduleTable.cs" caret="211" fromTop="9" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Views/d:Facult/f:Index.cshtml" caret="333" fromTop="10" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Content/f:validation.css" caret="516" fromTop="16" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Content/f:style_logon.css" caret="417" fromTop="16" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Scripts/f:scheduleCreate.js" caret="2223" fromTop="33" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Views/d:Schedule/f:Create.cshtml" caret="0" fromTop="0" />
-    <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/d:Repositories/f:RepositoryScheduleTable.cs" caret="5141" fromTop="28" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Controllers/f:ScheduleController.cs" caret="383" fromTop="14" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Views/d:Schedule/f:Index.cshtml" caret="838" fromTop="20" />
     <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/f:DomainContext.cs" caret="13" fromTop="0" />
@@ -29,7 +27,9 @@
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/d:Controllers/f:AdminController.cs" caret="215" fromTop="8" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/f:Global.asax.cs" caret="1335" fromTop="36" />
     <File id="F6C8F2A0-B236-4686-B874-035C3AA7644D/f:Web.config" caret="902" fromTop="19" />
-    <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/f:ConnectionContext.cs" caret="0" fromTop="0" />
+    <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/d:Entities/f:ScheduleTable.cs" caret="731" fromTop="24" />
+    <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/f:ConnectionContext.cs" caret="275" fromTop="10" />
+    <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/d:Repositories/f:RepositoryScheduleTable.cs" caret="4625" fromTop="16" />
   </RecentFiles>
   <RecentEdits>
     <File id="59B6ADDA-2CC8-4C9E-9361-0D1411A80A4E/d:DataModels/f:ConnectionContext.cs" caret="11224" fromTop="11" />
