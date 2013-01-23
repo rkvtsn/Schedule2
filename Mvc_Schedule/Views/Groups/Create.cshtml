@@ -30,12 +30,12 @@
     </div>
 
     <div class="editor-label">
-        @Html.Raw(Html.LabelFor(x => x.Name).ToString())
+        @Html.Label("Name", "Название группы")
     </div>
     <div class="editor-field">
         @Html.EditorFor(model => model.Name)
         @if (Html.ValidationMessageFor(x => x.Name) != null)
-		{ @Html.Raw(Html.ValidationMessageFor(x => x.Name).ToString()) }
+		{ @Html.ValidationMessage("Неверно введено Название группы") }
     </div>
 
     <p>
