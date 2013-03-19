@@ -1,12 +1,41 @@
 ﻿@model IEnumerable<Mvc_Schedule.Models.DataModels.ModelViews.FacultName>
 
 <script src="@Url.Content("~/Scripts/DefaultIndex.js")" type="text/javascript"></script>
+<style>
+    #search {
+        margin-left: 30px;
+        width: 250px;
+    }
+    #search input[type=text] {
+        padding: 5px;
+        color: #333;
+        border: 2px solid #fff;
+        background: #fff;
+    }
+    #search input[type=text]:focus {
+        background: #333;
+        color: #fff;
+    }
+    label { margin-left: 20px; }
+</style>
 
 @if (!Model.Any())
 {
 	<div id="page-title">Расписание в стадии разработки</div>
 	return;
 }
+<div id="search">
+@using(Html.BeginForm("Search","Schedule", FormMethod.Get)){
+    <input type="text" placeholder="Поиск..." name="keyword" />
+    <input type="submit" value="Найти"/>
+    
+    <label for="lector">лектор</label>
+    <input type="radio" value="1" name="searchType" id="lector" checked="checked" />
+    <label for="auditory">аудитория</label>
+    <input type="radio" value="2" name="searchType" id="auditory" />
+}
+</div>
+
 <div id="page-title">Выберите факультет</div>
 
 <div id="selector-block">

@@ -1,14 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace Mvc_Schedule.Models.DataModels.ModelViews
 {
 	public class ChangePasswordModel
 	{
-		//[Required(ErrorMessage = "Текущий пароль необходимо заполнить.")]
-		//[DataType(DataType.Password)]
-		//[Display(Name = "Текущий пароль")]
-		//public string OldPassword { get; set; }
 		public string UserName { get; set; }
 		
 		[Required(ErrorMessage = "Новый пароль необходимо заполнить.")]
@@ -19,7 +14,7 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 
 		[DataType(DataType.Password)]
 		[Display(Name = "Подтверждение пароля")]
-		[Compare("NewPassword", ErrorMessage = "Новый пароль и его подтверждение не совпадают.")]
+        [System.Web.Mvc.CompareAttribute("NewPassword", ErrorMessage = "Новый пароль и его подтверждение не совпадают.")]
 		public string ConfirmPassword { get; set; }
 	}
 
@@ -58,7 +53,7 @@ namespace Mvc_Schedule.Models.DataModels.ModelViews
 
 		[DataType(DataType.Password)]
 		[Display(Name = "Подтверждение пароля")]
-		[Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
+        [System.Web.Mvc.CompareAttribute("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
 		public string ConfirmPassword { get; set; }
 	}
 }

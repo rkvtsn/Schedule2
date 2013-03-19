@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Mvc_Schedule.Models.DataModels.ConnectionContext">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIIgACAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>DataModels\ConnectionContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.StaticData">
+    <Position X="10.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\StaticData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Entities.Facult">
+    <Position X="5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAQAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\Entities\Facult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Entities.Lesson">
+    <Position X="5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgEAAAAAAAAAAAAAAABAAAAAAAAAAAQA=</HashCode>
+      <FileName>DataModels\Entities\Lesson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Entities.ScheduleTable">
+    <Position X="1.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAgAEAAAAAEAAAAAACAAAAQAAEhAQAAAAACAAAAA=</HashCode>
+      <FileName>DataModels\Entities\ScheduleTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Entities.StudGroup">
+    <Position X="5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAQAAAAAABAIAAAAAAAAAEA=</HashCode>
+      <FileName>DataModels\Entities\StudGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Entities.Weekday">
+    <Position X="6.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAIAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\Entities\Weekday.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.ChangePasswordModel">
+    <Position X="10.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAQAAAAAAIAA=</HashCode>
+      <FileName>DataModels\ModelViews\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.LogOnModel">
+    <Position X="6.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>DataModels\ModelViews\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.RegisterModel">
+    <Position X="1.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>DataModels\ModelViews\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.FacultCreate">
+    <Position X="3.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAkAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\ModelViews\FacultCreate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.FacultName">
+    <Position X="3.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\ModelViews\FacultName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.GroupsJson">
+    <Position X="6.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\ModelViews\GroupsJson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.LessonsCreate">
+    <Position X="10.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>DataModels\ModelViews\LessonsCreate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.LessonsTime">
+    <Position X="8.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>DataModels\ModelViews\LessonsCreate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.RoleCheck">
+    <Position X="10.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\ModelViews\Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.Member">
+    <Position X="8.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQAA=</HashCode>
+      <FileName>DataModels\ModelViews\Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.ScheduleTableCreate">
+    <Position X="8.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAEAAAAAAgAAQAQAAAAAAAAAAAAAAAQAAAAAAE=</HashCode>
+      <FileName>DataModels\ModelViews\ScheduleTableCreate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.ModelViews.ScheduleTableIndex">
+    <Position X="3.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkAAAAAAAAgAAAAAAAAAAEAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>DataModels\ModelViews\ScheduleTableIndex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Repositories.RepositoryBase&lt;TD&gt;">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataModels\Repositories\RepositoryBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Repositories.RepositoryFacults">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAAAAAAAAAAEAAAACAAAIAAAAAAI=</HashCode>
+      <FileName>DataModels\Repositories\RepositoryFacults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Repositories.RepositoryGroups">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAAAAAAAAAAEAAACCAAAAAQAAABI=</HashCode>
+      <FileName>DataModels\Repositories\RepositoryGroups.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Repositories.RepositoryLessons">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACABAAAAAAAAAAAEAAAACAAAAAAAAAAI=</HashCode>
+      <FileName>DataModels\Repositories\RepositoryLessons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Repositories.RepositoryScheduleTable">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAQACAAAADAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>DataModels\Repositories\RepositoryScheduleTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DataModels.Repositories.RepositoryWeekdays">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>DataModels\Repositories\RepositoryWeekdays.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mvc_Schedule.Models.DomainContext" BaseTypeListCollapsed="true">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEAAACAEMAgAAAAAAIAAAEABAABABAAQAEAAAAA=</HashCode>
+      <FileName>DomainContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

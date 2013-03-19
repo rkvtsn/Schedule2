@@ -7,17 +7,30 @@ namespace Mvc_Schedule.Models.DataModels.Repositories
 {
 	public class RepositoryLessons : RepositoryBase<ConnectionContext>
 	{
-		public RepositoryLessons(ConnectionContext ctx) : base(ctx) { }
+        public RepositoryLessons(ConnectionContext ctx) : base(ctx) { }
 
 		public Lesson Get(int id)
 		{
 			return _ctx.Lessons.Find(id);
 		}
 
-		public void Add(LessonsCreate lessons)
+        public LessonsTime GetForEdit(int id)
+        {
+            return (from x in _ctx.Lessons
+                    where x.LessonId == id
+                    select new LessonsTime
+                    {
+                        Minutes = x.Time.Minute,
+                        Hours = x.Time.Hour,
+                        LessonId = x.LessonId
+                    }).SingleOrDefault();
+        }
+
+        public void Add(LessonsCreate lessons)
 		{
 			var oldList = List();
-			if (!oldList.Any())
+		    
+            if (!oldList.Any())
 				foreach (var time in lessons.Lessons.Select(x => x.Time).Distinct())
 					_ctx.Lessons.Add(new Lesson {Time = time});
 			else
@@ -36,8 +49,8 @@ namespace Mvc_Schedule.Models.DataModels.Repositories
 		{
 			return (from x in _ctx.Lessons orderby x.Time select x).ToArray();
 		}
-		
-		public void Edit(Lesson lesson)
+
+        public void Edit(LessonsTime lesson)
 		{
 			var old = Get(lesson.LessonId);
 			old.Time = lesson.Time;

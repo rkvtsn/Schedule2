@@ -35,6 +35,7 @@ namespace Mvc_Schedule
 			RegisterGlobalFilters(GlobalFilters.Filters);
 			RegisterRoutes(RouteTable.Routes);
 			//Database.SetInitializer(new DbMigrate(DbMigrate.MigrateStrategy.ClearDb)); // Миграция БД
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<ConnectionContext, Models.Migrations.Configuration>());
 		}
 	}
 }

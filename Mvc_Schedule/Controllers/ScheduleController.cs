@@ -17,16 +17,28 @@ namespace Mvc_Schedule.Controllers
 			return Json(model);
 		}
 
-		[HttpGet]
+        [HttpGet]
 		public ActionResult Index(int id = -1, int week = 1)
 		{
 			var model = _db.Schedule.ListForIndex(id, 1 == week);
 			if (model.Group == null)
 				return RedirectToRoute(new { controller = "Default", action = "Error", id = 404 });
 
-			ViewBag.Title = model.Group.Name;
+            ViewBag.Title = model.Group.Name;
+
 			return View(model);
 		}
+        
+        // Немного поиска.. *тестим TODO
+        [HttpGet]
+        public ActionResult Search(string keyword, int searchType, int week = 1)
+        {
+            if (keyword == null || keyword.Trim() == string.Empty)
+                return View();
+            else
+                return View(_db.Schedule.Search(keyword, searchType, 1 == week));
+        }
+        
 
 		[Authorize]
 		[HttpGet]
@@ -44,7 +56,7 @@ namespace Mvc_Schedule.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult Create(FormCollection scheduleRows)
 		{
-			bool isValid = false;
+			bool isValid;
 			var scheduletable = _db.Schedule.FormToTable(scheduleRows, out isValid);
 
 			if (isValid)

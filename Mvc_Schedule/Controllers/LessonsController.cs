@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using Mvc_Schedule.Models;
 using Mvc_Schedule.Models.DataModels;
-using Mvc_Schedule.Models.DataModels.Entities;
 using Mvc_Schedule.Models.DataModels.ModelViews;
 
 namespace Mvc_Schedule.Controllers
@@ -14,6 +13,7 @@ namespace Mvc_Schedule.Controllers
     	public LessonsController() { ViewBag.Title = "Редактор звонков"; }
 		
 		public ViewResult Index() { return View(_db.Lessons.List()); }
+
 		public ActionResult Create() { return View(); } 
 
         [HttpPost]
@@ -32,13 +32,13 @@ namespace Mvc_Schedule.Controllers
 
 		public ActionResult Edit(int id)
 		{
-			var lesson = _db.Lessons.Get(id);
+			var lesson = _db.Lessons.GetForEdit(id);
 			return View(lesson);
 		}
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
-        public ActionResult Edit(Lesson lesson)
+        public ActionResult Edit(LessonsTime lesson)
         {
             if (ModelState.IsValid)
             {
